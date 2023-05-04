@@ -1,0 +1,63 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [
+          ".svg"
+        ]
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "groups": [
+          "external",
+          "builtin",
+          "index",
+          "sibling",
+          "parent",
+          "internal",
+          "type"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "prettier/prettier": 2
+  },
+  "plugins": [
+    "prettier"
+  ]
+}

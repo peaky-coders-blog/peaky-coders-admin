@@ -1,0 +1,212 @@
+{
+  "app": {
+    "title": "Площадка для цифрового сообщества",
+    "copyright": "Peaky Coders ©2023"
+  },
+  "auth": {
+    "form": {
+      "email": {
+        "label": "Почта"
+      },
+      "password": {
+        "label": "Пароль"
+      },
+      "signIn": "Войти"
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "title": "Peaky Coders",
+      "articles": "Статьи",
+      "tags": "Тэги",
+      "reactions": "Реакции",
+      "users": "Пользователи",
+      "admins": "Администраторы"
+    },
+    "header": {
+      "users": "Пользователи",
+      "createUser": "Создание пользователя",
+      "updateUser": "Изменение пользователя",
+      "admins": "Администраторы",
+      "createAdmin": "Создание администратора",
+      "updateAdmin": "Изменение администратора",
+      "articles": "Статьи",
+      "createArticle": "Создание статьи",
+      "updateArticle": "Изменение статьи",
+      "tags": "Тэги",
+      "reactions": "Реакции"
+    },
+    "menu": {
+      "profile": "Профиль",
+      "logout": "Выйти"
+    }
+  },
+  "modal": {
+    "confirm": {
+      "logout": {
+        "title": "Выход из профиля",
+        "content": "Вы действительно хотите выйти из профиля?",
+        "ok": "Подтверждаю",
+        "cancel": "Отмена"
+      },
+      "removeUser": {
+        "title": "Удаление пользователя",
+        "content": "Вы действительно хотите удалить пользователя?",
+        "ok": "Подтверждаю",
+        "cancel": "Отмена"
+      },
+      "removeAdmin": {
+        "title": "Удаление администратора",
+        "content": "Вы действительно хотите удалить администратора?",
+        "ok": "Подтверждаю",
+        "cancel": "Отмена"
+      },
+      "removeRole": {
+        "title": "Удаление роли",
+        "content": "Вы действительно хотите удалить роль?",
+        "ok": "Подтверждаю",
+        "cancel": "Отмена"
+      }
+    },
+    "viewUser": {
+      "title": "Просмотр пользователя",
+      "status": "Статус",
+      "age": "Возраст",
+      "address": "Адрес",
+      "job": "Место работы",
+      "description": "Описание",
+      "created": "Создан",
+      "updated": "Обновлён"
+    },
+    "viewAdmin": {
+      "title": "Просмотр администратора",
+      "roles": "Роли",
+      "description": "Описание",
+      "created": "Создан",
+      "updated": "Обновлён",
+      "actions": {
+        "updatePassword": "Изменить пароль",
+        "updateRole": "Изменить роль"
+      }
+    },
+    "updatePassword": {
+      "title": "Изменение пароля",
+      "newPassword": "Новый пароль",
+      "rePassword": "Повторите пароль",
+      "actions": {
+        "update": "Изменить",
+        "cancel": "Отмена"
+      }
+    },
+    "updateAdminRoles": {
+      "title": "Изменение роли",
+      "messages": {
+        "select": "Необходимо выбрать хотя бы одну роль"
+      },
+      "actions": {
+        "update": "Изменить",
+        "cancel": "Отмена"
+      }
+    },
+    "viewRole": {
+      "title": "Просмотр роли"
+    }
+  },
+  "usersPage": {
+    "actions": {
+      "create": "Создать пользователя"
+    }
+  },
+  "usersTable": {
+    "table": {
+      "id": "ID",
+      "user": "Пользователь",
+      "status": "Статус",
+      "createdAt": "Дата регистрации",
+      "updatedAt": "Последняя активность"
+    },
+    "tooltip": {
+      "delete": "Удалить",
+      "update": "Редактировать",
+      "view": "Просмотр"
+    }
+  },
+  "adminsPage": {
+    "actions": {
+      "create": "Создать администратора"
+    }
+  },
+  "adminsTable": {
+    "table": {
+      "id": "ID",
+      "email": "Почта",
+      "createdAt": "Дата регистрации"
+    },
+    "tooltip": {
+      "delete": "Удалить",
+      "update": "Редактировать",
+      "view": "Просмотр"
+    }
+  },
+  "userForm": {
+    "fields": {
+      "email": "Почта",
+      "username": "Логин",
+      "avatar": "Аватар",
+      "from": "Откуда"
+    },
+    "actions": {
+      "create": "Создать",
+      "save": "Сохранить",
+      "cancel": "Отмена"
+    }
+  },
+  "adminForm": {
+    "fields": {
+      "email": "Почта",
+      "password": "Пароль",
+      "rePassword": "Повторите пароль"
+    },
+    "actions": {
+      "create": "Создать",
+      "save": "Сохранить",
+      "cancel": "Отмена"
+    }
+  },
+  "articlesTable": {
+    "table": {
+      "id": "ID",
+      "title": "Название",
+      "createdAt": "Дата создания",
+      "updatedAt": "Последнее обновление"
+    }
+  },
+  "components": {
+    "uploadImageButton": {
+      "label": "Загрузить"
+    }
+  },
+  "notifications": {
+    "createUser": {
+      "success": "Пользователь успешно создан"
+    },
+    "createAdmin": {
+      "success": "Администратор успешно создан"
+    },
+    "updateUser": {
+      "success": "Пользователь успешно обновлён"
+    },
+    "updateAdmin": {
+      "success": "Администратор успешно обновлён"
+    },
+    "changeAdminPassword": {
+      "success": "Пароль пользователя успешно изменён"
+    },
+    "deleteUser": {
+      "success": "Пользователь успешно удалён"
+    },
+    "deleteAdmin": {
+      "success": "Администратор успешно удалён"
+    }
+  }
+}
