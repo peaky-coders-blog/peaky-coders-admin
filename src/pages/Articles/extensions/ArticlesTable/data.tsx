@@ -17,7 +17,7 @@ const getColumnSearch = ({
   searchText,
   handleSearch,
   handleReset,
-}: I_GetColumns & { dataIndex: keyof T_ArticleRecord }): ColumnType<T_ArticleRecord> => ({
+}: I_GetColumns & { dataIndex: string[] }): ColumnType<T_ArticleRecord> => ({
   filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
     <div style={{ padding: 8 }}>
       <Input
@@ -60,16 +60,16 @@ const getColumnSearch = ({
   filterIcon: (filtered: boolean) => (
     <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
   ),
-  onFilter: (value, record) =>
-    record[dataIndex]
-      .toString()
-      .toLowerCase()
-      .includes((value as string).toLowerCase()),
-  onFilterDropdownOpenChange: (visible) => {
-    if (visible) {
-      setTimeout(() => searchInput.current?.select(), 100)
-    }
-  },
+  // onFilter: (value, record) =>
+  //   record[dataIndex]
+  //     .toString()
+  //     .toLowerCase()
+  //     .includes((value as string).toLowerCase()),
+  // onFilterDropdownOpenChange: (visible) => {
+  //   if (visible) {
+  //     setTimeout(() => searchInput.current?.select(), 100)
+  //   }
+  // },
   render: (text) => (
     <Highlighter
       highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
@@ -86,7 +86,7 @@ interface I_GetColumns {
   handleSearch: (
     selectedKeys: string[],
     confirm: (param?: FilterConfirmProps) => void,
-    dataIndex: keyof T_ArticleRecord,
+    dataIndex: string[],
   ) => void
   handleReset: (clearFilters: () => void, confirm: (param?: FilterConfirmProps) => void) => void
 }
@@ -95,7 +95,9 @@ export const getColumns = (searchOptions: I_GetColumns) => [
   {
     title: t('articlesTable.table.id'),
     dataIndex: 'id',
-    sorter: true,
+    sorter: {
+      multiple: 1,
+    },
   },
   {
     title: t('articlesTable.table.title'),
@@ -103,7 +105,18 @@ export const getColumns = (searchOptions: I_GetColumns) => [
     filterIcon: (filtered: boolean) => (
       <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
     ),
-    ...getColumnSearch({ ...searchOptions, dataIndex: 'title' }),
+    ...getColumnSearch({ ...searchOptions, dataIndex: ['title'] }),
+  },
+  {
+    title: t('articlesTable.table.author'),
+    dataIndex: ['author', 'username'],
+    filterIcon: (filtered: boolean) => (
+      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+    ),
+    sorter: {
+      multiple: 1,
+    },
+    ...getColumnSearch({ ...searchOptions, dataIndex: ['author', 'username'] }),
   },
   {
     title: t('articlesTable.table.createdAt'),

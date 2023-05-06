@@ -1,4 +1,5 @@
 import { T_ArticleId } from 'models/shared/article'
+import { T_UserId } from 'models/shared/user'
 import { I_User } from 'models/user'
 
 enum E_ArticleStatus {
@@ -16,6 +17,7 @@ export interface I_Article {
   tags: any
   comments: any
   reactions: any
+  authorId: T_UserId
   createdAt: Date
   updatedAt: Date
 }
