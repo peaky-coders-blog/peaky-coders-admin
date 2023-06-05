@@ -53,6 +53,8 @@ export const ArticleTable = () => {
   ) => {
     const params = new URLSearchParams()
 
+    console.log('filters', filters)
+
     params.append('page', String(pagination.current))
     params.append('limit', String(pagination.pageSize))
 
@@ -69,10 +71,17 @@ export const ArticleTable = () => {
         }
       })
     }
-
     if (filters) {
       Object.entries(filters).forEach(([field, value]) => {
-        if (value) {
+        if (Array.isArray(value)) {
+          value.forEach((item) => {
+            const param = {
+              field,
+              value: item,
+            }
+            params.append('filter', JSON.stringify(param))
+          })
+        } else if (value) {
           const param = {
             field,
             value: value[0],
@@ -96,7 +105,9 @@ export const ArticleTable = () => {
       <Table
         bordered
         loading={isArticlesFetching}
-        columns={getColumns({ searchInput, searchText, handleReset, handleSearch })}
+        columns={getColumns({
+          searchOptions: { searchInput, searchText, handleReset, handleSearch },
+        })}
         dataSource={dataTable}
         pagination={{
           current: Number(searchParams.get('page')) || 1,

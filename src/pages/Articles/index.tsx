@@ -1,16 +1,15 @@
-import { Breadcrumb, Button, Divider } from 'antd'
+import { Button, Divider } from 'antd'
 
 import { ArticleTable } from './extensions/ArticlesTable'
 
+import { Breadcrumbs } from 'components/Breadcrumbs'
 import { t } from 'languages'
 import * as C from 'styles/components'
 
 export const Articles = () => {
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>{t('dashboard.header.articles')}</Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumbs items={[{ title: t('dashboard.header.articles') }]} />
       <Divider />
 
       <C.WrapperPage>

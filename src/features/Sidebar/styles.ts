@@ -114,10 +114,11 @@ export const SidebarList = styled.ul`
 
 export const SidebarListItem = styled.li<{ isActive: boolean }>`
   position: relative;
+  user-select: none;
 
   width: 100%;
   min-width: 56px;
-  height: 56px;
+  height: 49px;
   padding: 16px;
 
   border-radius: 8px;

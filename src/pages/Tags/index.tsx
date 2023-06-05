@@ -1,14 +1,13 @@
-import { Breadcrumb, Button, Divider } from 'antd'
+import { Button, Divider } from 'antd'
 
+import { Breadcrumbs } from 'components/Breadcrumbs'
 import { t } from 'languages'
 import * as C from 'styles/components'
 
 export const Tags = () => {
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>{t('dashboard.header.events')}</Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumbs items={[{ title: t('dashboard.header.events') }]} />
       <Divider />
 
       <C.WrapperPage>

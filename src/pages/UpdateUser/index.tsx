@@ -1,6 +1,6 @@
-import { Breadcrumb, Divider } from 'antd'
-import { Link } from 'react-router-dom'
+import { Divider } from 'antd'
 
+import { Breadcrumbs } from 'components/Breadcrumbs'
 import { FormUpdateUser } from 'features/FormUser'
 import { t } from 'languages'
 import * as C from 'styles/components'
@@ -8,12 +8,12 @@ import * as C from 'styles/components'
 export const UpdateUser = () => {
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>
-          <Link to='/users'>{t('dashboard.header.users')}</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>{t('dashboard.header.updateUser')}</Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumbs
+        items={[
+          { title: t('dashboard.header.users'), to: '/users' },
+          { title: t('dashboard.header.updateUser') },
+        ]}
+      />
       <Divider />
       <C.WrapperPage>
         <FormUpdateUser />

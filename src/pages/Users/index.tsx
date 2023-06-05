@@ -1,8 +1,9 @@
-import { Breadcrumb, Button, Divider } from 'antd'
+import { Button, Divider } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
 import { UsersTable } from './extensions/UsersTable'
 
+import { Breadcrumbs } from 'components/Breadcrumbs'
 import { t } from 'languages'
 import * as C from 'styles/components'
 
@@ -15,9 +16,7 @@ export const Users = () => {
 
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>{t('dashboard.header.users')}</Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumbs items={[{ title: t('dashboard.header.users') }]} />
       <Divider />
       <C.WrapperPage>
         <Button onClick={handleToCreateUser} type='primary'>
