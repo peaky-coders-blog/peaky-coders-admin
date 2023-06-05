@@ -21,7 +21,6 @@ export const profileSlice = createSlice({
       if (action.payload.data) {
         state.isAuth = true
         state.email = action.payload.data.admin.email
-        console.log('data', action.payload)
         if (action.payload.data.accessToken)
           LocalStorage.setAccessToken(action.payload.data.accessToken)
         if (action.payload.data.refreshToken)

@@ -8,7 +8,7 @@ import { RefObject } from 'react'
 import Highlighter from 'react-highlight-words'
 
 import { t } from 'languages'
-import { T_ArticleRecord } from 'models/article'
+import { E_ArticleStatus, T_ArticleRecord } from 'models/article'
 import { E_FormatDate } from 'utils/helpers/date'
 
 const getColumnSearch = ({
@@ -106,6 +106,11 @@ export const getColumns = (searchOptions: I_GetColumns) => [
       <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
     ),
     ...getColumnSearch({ ...searchOptions, dataIndex: ['title'] }),
+  },
+  {
+    title: t('articlesTable.table.status'),
+    dataIndex: 'status',
+    render: (value: E_ArticleStatus) => <Space size='middle'>{value}</Space>,
   },
   {
     title: t('articlesTable.table.author'),

@@ -2,7 +2,7 @@ import { T_ArticleId } from 'models/shared/article'
 import { T_UserId } from 'models/shared/user'
 import { I_User } from 'models/user'
 
-enum E_ArticleStatus {
+export enum E_ArticleStatus {
   DRAFT = 'DRAFT',
   CHECKED = 'CHECKED',
   PUBLISHED = 'PUBLISHED',
