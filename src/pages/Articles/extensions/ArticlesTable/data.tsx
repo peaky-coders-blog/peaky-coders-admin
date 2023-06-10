@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons'
-import { Space } from 'antd'
+import { Space, Tag } from 'antd'
 import { ColumnsType } from 'antd/es/table/interface'
 import dayjs from 'dayjs'
 
@@ -53,6 +53,26 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
       multiple: 1,
     },
     ...getColumnSearch({ ...searchOptions, dataIndex: ['author', 'username'] }),
+  },
+  {
+    title: t('articlesTable.table.activity'),
+    dataIndex: ['_count', 'ArticleComment'],
+    render: (commentsCount: number, record: T_ArticleRecord) => (
+      <Space size='small'>
+        <Tag>{commentsCount}💬</Tag>
+        {record.ArticleReaction &&
+          record.ArticleReaction.map((item) => {
+            if (item.reaction) {
+              return (
+                <Tag key={item.reactionId + item.articleId}>
+                  {item.counter}
+                  {item.reaction.icon}
+                </Tag>
+              )
+            }
+          })}
+      </Space>
+    ),
   },
   {
     title: t('articlesTable.table.createdAt'),
