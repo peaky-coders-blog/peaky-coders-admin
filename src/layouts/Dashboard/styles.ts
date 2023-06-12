@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
+import * as m from './motion'
+
 export const Layout = styled.div`
   display: flex;
   flex-direction: 'row';
@@ -8,13 +10,18 @@ export const Layout = styled.div`
   min-height: 100vh;
 `
 
-export const LayoutWrapper = styled(motion.div)`
+interface LayoutWrapperProps {
+  isSidebarCollapsed: boolean
+  isMobile: boolean
+}
+export const LayoutWrapper = styled(motion.div).attrs<LayoutWrapperProps>(
+  ({ isMobile, isSidebarCollapsed }) => m.layoutWrapperAttrs(isSidebarCollapsed, isMobile),
+)<LayoutWrapperProps>`
   display: flex;
   flex: auto;
   flex-direction: column;
 
-  width: calc(100% - 240px);
-  height: 100vh;
+  width: 100%;
 
   background: #f0f2f5;
 `

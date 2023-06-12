@@ -53,8 +53,6 @@ export const ArticleTable = () => {
   ) => {
     const params = new URLSearchParams()
 
-    console.log('filters', filters)
-
     params.append('page', String(pagination.current))
     params.append('limit', String(pagination.pageSize))
 
@@ -99,6 +97,7 @@ export const ArticleTable = () => {
   }
 
   if (articlesData?.data && articlesData?.info) {
+    console.log('articlesData.data', articlesData.data)
     const dataTable = formatToDataSource(articlesData.data)
 
     return (

@@ -1,11 +1,13 @@
-import { SearchOutlined } from '@ant-design/icons'
-import { Space, Tag } from 'antd'
+import { SearchOutlined, EditOutlined } from '@ant-design/icons'
+import { Button, Space, Tag, Tooltip } from 'antd'
 import { ColumnsType } from 'antd/es/table/interface'
 import dayjs from 'dayjs'
+import { Link } from 'react-router-dom'
 
 import { TagStatus } from 'components/TagStatus'
 import { t } from 'languages'
 import { E_ArticleStatus, T_ArticleRecord } from 'models/article'
+import { I_Tag } from 'models/tags'
 import { E_FormatDate } from 'utils/helpers/date'
 import { I_ColumnSearch, getColumnSearch } from 'utils/tables/columnSearch'
 
@@ -55,6 +57,18 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ...getColumnSearch({ ...searchOptions, dataIndex: ['author', 'username'] }),
   },
   {
+    title: t('articlesTable.table.tags'),
+    dataIndex: ['tags'],
+    render: (value: I_Tag[]) => (
+      <Space size='small'>
+        {value &&
+          value.map((item) => {
+            return <Tag key={item.id}>{item.name}</Tag>
+          })}
+      </Space>
+    ),
+  },
+  {
     title: t('articlesTable.table.activity'),
     dataIndex: ['_count', 'ArticleComment'],
     render: (commentsCount: number, record: T_ArticleRecord) => (
@@ -87,5 +101,19 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     render: (value: string) => (
       <Space size='middle'>{dayjs(value).format(E_FormatDate.extend)}</Space>
     ),
+  },
+  {
+    key: 'action',
+    fixed: 'right',
+    render: (record: T_ArticleRecord) => (
+      <Space size='middle'>
+        <Tooltip title={t('adminsTable.tooltip.update')} placement='topLeft'>
+          <Link to={`/articles/update/${record.id}`}>
+            <Button icon={<EditOutlined />} />
+          </Link>
+        </Tooltip>
+      </Space>
+    ),
+    align: 'center',
   },
 ]

@@ -11,6 +11,8 @@ export const SidebarWrapper = styled(motion.div).attrs<I_SidebarProps & { isMobi
   ({ isCollapsed, isMobile }) => m.sidebarWrapperAttrs(isCollapsed, isMobile),
 )<{ isMobile: boolean; isCollapsed: boolean }>`
   z-index: 100;
+  left: 0;
+  top: 0;
 
   overflow: hidden;
   display: flex;
@@ -29,11 +31,11 @@ export const SidebarWrapper = styled(motion.div).attrs<I_SidebarProps & { isMobi
   ${({ isMobile }) =>
     isMobile
       ? css`
-          position: absolute;
           min-width: 88px;
+          position: fixed;
         `
       : css`
-          position: relative;
+          position: fixed;
         `}
 `
 
