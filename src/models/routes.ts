@@ -7,7 +7,8 @@ export enum E_Routes {
   updateAdmin = '/admins/update/:adminId',
   articles = '/articles',
   createArticle = '/articles/create',
-  updateArticle = '/articles/update/:articleId',
+  viewArticle = '/articles/:articleId',
+  updateArticle = '/articles/:articleId/update',
   tags = '/tags',
   reactions = '/reactions',
 }

@@ -84,9 +84,7 @@ export const FormUpdateArticle = () => {
             </Form.Item>
           </Col>
         </Row>
-        <Row gutter={[16, 4]}>
-          <MDEditor height={800} value={editorValue} onChange={handleChangeEditorValue} />
-        </Row>
+        <MDEditor height={800} value={editorValue} onChange={handleChangeEditorValue} />
         <C.Brick />
         <Form.Item>
           <Space>

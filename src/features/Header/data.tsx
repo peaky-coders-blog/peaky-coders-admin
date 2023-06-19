@@ -16,6 +16,7 @@ export const headerTitles: Record<E_Routes, string> = {
   [E_Routes.updateArticle]: 'dashboard.header.updateArticle',
   [E_Routes.tags]: 'dashboard.header.tags',
   [E_Routes.reactions]: 'dashboard.header.reactions',
+  [E_Routes.viewArticle]: 'dashboard.header.viewArticle',
 }
 
 interface I_ProfileMenu {

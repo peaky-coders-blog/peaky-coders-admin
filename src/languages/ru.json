@@ -34,6 +34,7 @@
       "updateArticles": "Изменение статьи",
       "createArticle": "Создание статьи",
       "updateArticle": "Изменение статьи",
+      "viewArticle": "Просмотр статьи",
       "tags": "Тэги",
       "reactions": "Реакции"
     },
@@ -143,11 +144,7 @@
       "email": "Почта",
       "createdAt": "Дата регистрации"
     },
-    "tooltip": {
-      "delete": "Удалить",
-      "update": "Редактировать",
-      "view": "Просмотр"
-    }
+    "tooltip": {}
   },
   "userForm": {
     "fields": {
@@ -231,5 +228,10 @@
     "deleteAdmin": {
       "success": "Администратор успешно удалён"
     }
+  },
+  "tooltip": {
+    "delete": "Удалить",
+    "update": "Редактировать",
+    "view": "Просмотреть"
   }
 }

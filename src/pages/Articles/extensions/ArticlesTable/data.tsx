@@ -1,4 +1,4 @@
-import { SearchOutlined, EditOutlined } from '@ant-design/icons'
+import { SearchOutlined, EyeOutlined } from '@ant-design/icons'
 import { Button, Space, Tag, Tooltip } from 'antd'
 import { ColumnsType } from 'antd/es/table/interface'
 import dayjs from 'dayjs'
@@ -107,9 +107,9 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     fixed: 'right',
     render: (record: T_ArticleRecord) => (
       <Space size='middle'>
-        <Tooltip title={t('adminsTable.tooltip.update')} placement='topLeft'>
-          <Link to={`/articles/update/${record.id}`}>
-            <Button icon={<EditOutlined />} />
+        <Tooltip title={t('tooltip.view')} placement='topLeft'>
+          <Link to={`/articles/${record.id}`}>
+            <Button icon={<EyeOutlined />} />
           </Link>
         </Tooltip>
       </Space>

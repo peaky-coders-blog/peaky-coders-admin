@@ -36,4 +36,14 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  .wmde-markdown{
+    background-color: #2D2D2D;
+  }
+  .w-md-editor {
+    background-color: #2D2D2D;
+  }
+  .code-highlight {
+    background-color: #222121 !important;
+  }
 `
