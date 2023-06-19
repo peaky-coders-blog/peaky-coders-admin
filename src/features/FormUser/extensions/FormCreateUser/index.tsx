@@ -1,5 +1,5 @@
 import { CheckOutlined } from '@ant-design/icons'
-import { Button, Divider, Form, notification, Space } from 'antd'
+import { Button, Form, notification, Space } from 'antd'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,6 +7,7 @@ import { GeneralSection } from 'features/FormUser/components'
 import { t } from 'languages'
 import { T_UpdateUserForm } from 'models/user/forms'
 import { usersAPI } from 'services/users'
+import * as C from 'styles/components'
 
 export const FormCreateUser = () => {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ export const FormCreateUser = () => {
   return (
     <Form form={form} layout='vertical' onFinish={handleFinish}>
       <GeneralSection />
-      <Divider />
+      <C.Brick />
 
       <Form.Item>
         <Space>

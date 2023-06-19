@@ -16,11 +16,7 @@ export const ArticleTable = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const [searchText, setSearchText] = useState('')
   const searchInput = useRef<InputRef>(null)
-  const {
-    data: articlesData,
-    isFetching: isArticlesFetching,
-    isLoading: isArticlesLoading,
-  } = articlesAPI.useGetArticlesQuery(
+  const { data: articlesData, isLoading: isArticlesLoading } = articlesAPI.useGetArticlesQuery(
     {
       page: searchParams.get('page'),
       limit: searchParams.get('limit'),
@@ -97,13 +93,12 @@ export const ArticleTable = () => {
   }
 
   if (articlesData?.data && articlesData?.info) {
-    console.log('articlesData.data', articlesData.data)
     const dataTable = formatToDataSource(articlesData.data)
 
     return (
       <Table
         bordered
-        loading={isArticlesFetching}
+        loading={isArticlesLoading}
         columns={getColumns({
           searchOptions: { searchInput, searchText, handleReset, handleSearch },
         })}

@@ -15,6 +15,5 @@ export enum E_Routes {
 export type T_Params = {
   userId: string
   adminId: string
-  eventId: string
-  roleId: string
+  articleId: string
 }

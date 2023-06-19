@@ -5,8 +5,6 @@ import { T_GetArticlesResponse, T_GetArticleResponse } from './models/responses'
 
 import { baseQueryWithReAuth } from '../utils'
 
-import { T_AdminId } from 'models/shared/admin'
-
 export const articlesAPI = createApi({
   reducerPath: 'articlesAPI',
   baseQuery: baseQueryWithReAuth,
@@ -63,7 +61,7 @@ export const articlesAPI = createApi({
       providesTags: ['articles'],
     }),
 
-    getAdmin: build.query<T_GetArticleResponse, T_AdminId>({
+    getArticle: build.query<T_GetArticleResponse, string>({
       query: (payload) => ({
         url: `/articles/${payload}`,
       }),

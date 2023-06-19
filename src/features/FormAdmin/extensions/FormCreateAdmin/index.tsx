@@ -1,5 +1,5 @@
 import { CheckOutlined } from '@ant-design/icons'
-import { Button, Divider, Form, notification, Space } from 'antd'
+import { Button, Form, notification, Space } from 'antd'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,6 +8,7 @@ import { GeneralSection, PasswordSection } from '../../components'
 import { t } from 'languages'
 import { T_CreateAdminForm } from 'models/admin/forms'
 import { adminsAPI } from 'services/admins'
+import * as C from 'styles/components'
 import { formCreateToAdmin } from 'utils/forms/admins'
 
 export const FormCreateAdmin = () => {
@@ -42,7 +43,7 @@ export const FormCreateAdmin = () => {
       <GeneralSection />
       <PasswordSection />
 
-      <Divider />
+      <C.Brick />
       <Form.Item>
         <Space>
           <Button onClick={handleCancel} size='large' type='default' htmlType='button'>

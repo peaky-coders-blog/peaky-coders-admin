@@ -1,7 +1,7 @@
 import { CheckOutlined } from '@ant-design/icons'
-import { Button, Divider, Form, notification, Space } from 'antd'
+import { Button, Form, notification, Space } from 'antd'
 import { useEffect } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { GeneralSection } from '../../components'
 
@@ -11,6 +11,7 @@ import { t } from 'languages'
 import { T_UpdateAdminForm } from 'models/admin/forms'
 import { T_Params } from 'models/routes'
 import { adminsAPI } from 'services/admins'
+import * as C from 'styles/components'
 import { adminToFormUpdate } from 'utils/forms/admins'
 
 export const FormUpdateAdmin = () => {
@@ -33,11 +34,8 @@ export const FormUpdateAdmin = () => {
     }
   }, [isSuccess, data, navigate])
 
-  // Если параметр адресной строки не найден
-  if (!params.adminId) return <Navigate to='/admins' />
-
   // Получение админа
-  const { data: adminData, isFetching: isAdminFetching } = adminsAPI.useGetAdminQuery(
+  const { data: adminData, isLoading: isAdminLoading } = adminsAPI.useGetAdminQuery(
     Number(params.adminId),
   )
 
@@ -49,7 +47,7 @@ export const FormUpdateAdmin = () => {
     navigate(-1)
   }
 
-  if (isAdminFetching) return <Loader relative />
+  if (isAdminLoading) return <Loader relative />
 
   if (adminData?.data) {
     return (
@@ -60,8 +58,7 @@ export const FormUpdateAdmin = () => {
         initialValues={adminToFormUpdate(adminData.data)}
       >
         <GeneralSection />
-
-        <Divider />
+        <C.Brick />
         <Form.Item>
           <Space>
             <Button onClick={handleCancel} size='large' type='default' htmlType='button'>

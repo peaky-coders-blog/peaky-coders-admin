@@ -1,7 +1,7 @@
 import { CheckOutlined } from '@ant-design/icons'
-import { Button, Divider, Form, notification, Space } from 'antd'
+import { Button, Form, notification, Space } from 'antd'
 import { useEffect } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { ErrorFeedback } from 'components/ErrorFeedback'
 import { Loader } from 'components/Loader'
@@ -10,6 +10,7 @@ import { t } from 'languages'
 import { T_Params } from 'models/routes'
 import { T_UpdateUserForm } from 'models/user/forms'
 import { usersAPI } from 'services/users'
+import * as C from 'styles/components'
 
 export const FormUpdateUser = () => {
   const navigate = useNavigate()
@@ -31,12 +32,9 @@ export const FormUpdateUser = () => {
     }
   }, [isSuccess, data, navigate])
 
-  // Если параметр адресной строки не найден
-  if (!params.userId) return <Navigate to='/users' />
-
   // Получение пользователя
-  const { data: userData, isFetching: isUserFetching } = usersAPI.useGetUserQuery(
-    Number(params.userId),
+  const { data: userData, isLoading: isUserLoading } = usersAPI.useGetUserQuery(
+    Number(params.userId!),
   )
 
   const handleFinish = (values: T_UpdateUserForm) => {
@@ -47,13 +45,13 @@ export const FormUpdateUser = () => {
     navigate(-1)
   }
 
-  if (isUserFetching) return <Loader relative />
+  if (isUserLoading) return <Loader relative />
 
   if (userData?.data) {
     return (
       <Form form={form} layout='vertical' onFinish={handleFinish} initialValues={userData.data}>
         <GeneralSection />
-        <Divider />
+        <C.Brick />
 
         <Form.Item>
           <Space>

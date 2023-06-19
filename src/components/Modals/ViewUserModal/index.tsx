@@ -9,7 +9,6 @@ import { Loader } from 'components/Loader'
 import { t } from 'languages'
 import { T_UserId } from 'models/shared/user'
 import { usersAPI } from 'services/users'
-import { getStatusName } from 'utils/dictionaries/statuses'
 import { E_FormatDate } from 'utils/helpers/date'
 
 interface I_ViewUserModalProps {

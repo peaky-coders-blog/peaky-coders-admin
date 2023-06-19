@@ -31,6 +31,7 @@
       "createAdmin": "Создание администратора",
       "updateAdmin": "Изменение администратора",
       "articles": "Статьи",
+      "updateArticles": "Изменение статьи",
       "createArticle": "Создание статьи",
       "updateArticle": "Изменение статьи",
       "tags": "Тэги",
@@ -173,6 +174,18 @@
       "cancel": "Отмена"
     }
   },
+  "articleForm": {
+    "fields": {
+      "title": "Название",
+      "status": "Статус",
+      "tags": "Тэги"
+    },
+    "actions": {
+      "create": "Создать",
+      "save": "Сохранить",
+      "cancel": "Отмена"
+    }
+  },
   "articlesTable": {
     "table": {
       "id": "ID",
@@ -183,6 +196,12 @@
       "createdAt": "Дата создания",
       "updatedAt": "Последнее обновление",
       "status": "Статус"
+    }
+  },
+  "articleReactionsTable": {
+    "table": {
+      "id": "ID",
+      "username": "Пользователь"
     }
   },
   "components": {
