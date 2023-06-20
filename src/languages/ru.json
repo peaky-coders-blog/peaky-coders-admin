@@ -198,7 +198,9 @@
   "articleReactionsTable": {
     "table": {
       "id": "ID",
-      "username": "Пользователь"
+      "username": "Пользователь",
+      "text": "Текст",
+      "votes": "Голоса"
     }
   },
   "components": {

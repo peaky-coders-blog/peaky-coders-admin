@@ -8,9 +8,7 @@ import {
 import MDEditor from '@uiw/react-md-editor'
 import { Button, Col, Row, Statistic } from 'antd'
 import dayjs from 'dayjs'
-import { useParams } from 'react-router-dom'
-
-import { useTheme } from 'styled-components'
+import { Link, useParams } from 'react-router-dom'
 
 import { ErrorFeedback } from 'components/ErrorFeedback'
 import { Loader } from 'components/Loader'
@@ -21,7 +19,6 @@ import { E_FormatDate } from 'utils/helpers/date'
 
 export const ArticleInfo = () => {
   const params = useParams<T_Params>()
-  const theme = useTheme()
 
   // Получение статьи
   const { data: articleData, isLoading: isArticleLoading } = articlesAPI.useGetArticleQuery(
@@ -34,7 +31,7 @@ export const ArticleInfo = () => {
     return (
       <>
         <Row gutter={[16, 4]}>
-          <Col xs={24} lg={12} xl={6}>
+          <Col xs={24} lg={12} xl={12}>
             <Statistic
               title='Название'
               value={articleData.data.title}
@@ -85,9 +82,11 @@ export const ArticleInfo = () => {
           </Col>
         </Row>
         <C.Brick />
-        <Button size='large' type='default' htmlType='button'>
-          Редактировать
-        </Button>
+        <Link to='update'>
+          <Button type='primary' size='large'>
+            Редактировать
+          </Button>
+        </Link>
       </>
     )
   }

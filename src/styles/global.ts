@@ -46,4 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   .code-highlight {
     background-color: #222121 !important;
   }
+  .code-line {
+    background-color: #2D2D2D;
+  }
 `

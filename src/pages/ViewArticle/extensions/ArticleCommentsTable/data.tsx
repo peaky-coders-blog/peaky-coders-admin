@@ -15,8 +15,12 @@ export const getColumns = (): ColumnsType<T_ArticleComment> => [
     dataIndex: ['author', 'username'],
   },
   {
-    title: t('articleReactionsTable.table.username'),
+    title: t('articleReactionsTable.table.text'),
     dataIndex: 'text',
+  },
+  {
+    title: t('articleReactionsTable.table.votes'),
+    dataIndex: 'votes',
   },
   {
     key: 'action',
