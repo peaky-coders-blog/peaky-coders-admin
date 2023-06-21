@@ -1,8 +1,8 @@
 import { I_Reaction } from 'models/reaction'
-import { T_ArticleId } from 'models/shared/article'
-import { T_UserId } from 'models/shared/user'
 import { I_Tag } from 'models/tags'
-import { I_User } from 'models/user'
+import { I_User, T_UserId } from 'models/user'
+
+export type T_ArticleId = number
 
 export enum E_ArticleStatus {
   DRAFT = 'DRAFT',

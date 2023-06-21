@@ -1,4 +1,4 @@
-import { T_AdminId } from '../shared/admin'
+export type T_AdminId = number
 
 export interface I_Admin {
   id: T_AdminId

@@ -1,4 +1,4 @@
-import { T_UserId } from '../shared/user'
+export type T_UserId = number
 
 export enum E_UserFrom {
   GITHUB = 'GITHUB',

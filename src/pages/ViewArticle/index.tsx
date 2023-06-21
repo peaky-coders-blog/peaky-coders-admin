@@ -20,16 +20,16 @@ export const ViewArticle = () => {
       <Divider />
       <C.WrapperPage>
         <Divider orientation='left' orientationMargin='0'>
-          Общее
+          {t('viewArticle.info.title')}
         </Divider>
         <ArticleInfo />
         <C.Brick />
         <Divider orientation='left' orientationMargin='0'>
-          Комментарии
+          {t('viewArticle.comments.title')}
         </Divider>
         <ArticleCommentsTable />
         <Divider orientation='left' orientationMargin='0'>
-          Реакции
+          {t('viewArticle.reactions.title')}
         </Divider>
         <Row gutter={[16, 4]}>
           <ArticleReactionsTable />

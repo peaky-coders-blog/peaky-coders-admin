@@ -19,7 +19,7 @@ import { rtkQueryErrorLogger } from 'middlewares/rtkQueryErrorLogger'
 import { adminsAPI } from 'services/admins'
 import { articlesAPI } from 'services/articles'
 import { authAPI } from 'services/auth'
-import { filesAPI } from 'services/files'
+import { tagsAPI } from 'services/tags'
 import { usersAPI } from 'services/users'
 
 const persistConfig = {
@@ -40,8 +40,8 @@ const rootReducer = combineReducers({
   [adminsAPI.reducerPath]: adminsAPI.reducer,
   [authAPI.reducerPath]: authAPI.reducer,
   [usersAPI.reducerPath]: usersAPI.reducer,
-  [filesAPI.reducerPath]: filesAPI.reducer,
   [articlesAPI.reducerPath]: articlesAPI.reducer,
+  [tagsAPI.reducerPath]: tagsAPI.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -57,8 +57,8 @@ export const store = configureStore({
       adminsAPI.middleware,
       authAPI.middleware,
       usersAPI.middleware,
-      filesAPI.middleware,
       articlesAPI.middleware,
+      tagsAPI.middleware,
       rtkQueryErrorLogger,
     ),
 })

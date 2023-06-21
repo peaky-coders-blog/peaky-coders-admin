@@ -18,6 +18,5 @@ export const formatArticleCommentsToDataSource = (
     } else {
       acc.push({ ...cur, key: String(cur.id) })
     }
-    console.log('acc', acc)
     return acc
   }, [])

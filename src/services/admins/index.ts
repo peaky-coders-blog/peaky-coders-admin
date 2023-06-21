@@ -10,7 +10,7 @@ import {
 
 import { baseQueryWithReAuth } from '../utils'
 
-import { T_AdminId } from 'models/shared/admin'
+import { T_AdminId } from 'models/admin'
 
 export const adminsAPI = createApi({
   reducerPath: 'adminsAPI',

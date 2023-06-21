@@ -40,7 +40,6 @@ export const baseQueryWithReAuth: BaseQueryFn<
 
     const response = await refreshResult.json()
 
-    console.log('response', response)
     if (response.data) {
       const accessToken = (response?.data as T_Tokens).accessToken
       const refreshToken = (response?.data as T_Tokens).refreshToken

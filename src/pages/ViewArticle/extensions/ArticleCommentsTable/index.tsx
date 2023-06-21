@@ -14,15 +14,13 @@ export const ArticleCommentsTable = () => {
 
   // Получение статьи
   const { data: articleData, isLoading: isArticleLoading } = articlesAPI.useGetArticleQuery(
-    params.articleId!,
+    Number(params.articleId!),
   )
 
-  console.log('articleData', articleData?.data?.ArticleComment)
   if (isArticleLoading) return <Loader relative />
 
   if (articleData?.data?.ArticleComment) {
     const dataTable = formatArticleCommentsToDataSource(articleData?.data?.ArticleComment)
-    console.log('dataTable', dataTable)
     return <Table columns={getColumns()} dataSource={dataTable} bordered />
   }
 

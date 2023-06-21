@@ -13,7 +13,7 @@ export type T_ServerMessage = {
   status: E_ServerMessageStatus
 }
 
-export interface I_Response<T, P = unknown> {
+export interface I_Response<T = unknown, P = unknown> {
   data?: T
   info?: P
   message?: T_ServerMessage

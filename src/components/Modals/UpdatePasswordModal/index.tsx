@@ -19,7 +19,6 @@ export const UpdatePasswordModal = ({
   const [form] = Form.useForm<T_ChangePassword>()
 
   const handleFinish = (values: T_ChangePassword) => {
-    console.log('values', values)
     onOk(values.password)
   }
 

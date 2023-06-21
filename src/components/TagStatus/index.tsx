@@ -12,12 +12,12 @@ const tagColors: Record<E_ArticleStatus, string> = {
   PUBLISHED: 'success',
 }
 
-const tagText: Record<E_ArticleStatus, string> = {
+export const tagStatusText: Record<E_ArticleStatus, string> = {
   CHECKED: 'Проверяется',
   DRAFT: 'Черновик',
   PUBLISHED: 'Опубликован',
 }
 
 export const TagStatus = ({ value }: T_TagStatus) => {
-  return <Tag color={tagColors[value]}>{tagText[value]}</Tag>
+  return <Tag color={tagColors[value]}>{tagStatusText[value]}</Tag>
 }

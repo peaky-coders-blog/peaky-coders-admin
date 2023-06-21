@@ -32,7 +32,6 @@ export const profileMenu = ({ onLogout }: I_ProfileMenu): MenuProps => ({
     },
   ],
   onClick: (e) => {
-    console.log('click', e)
     onLogout()
   },
 })

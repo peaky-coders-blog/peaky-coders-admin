@@ -15,7 +15,6 @@ export const customRequestUpload = async (options: any, fetchUpload: any) => {
   data.append('file', options.file)
   try {
     const response: { data: { fileName: string } } = await fetchUpload(data)
-    console.log('response', response)
     options.onSuccess({
       url: import.meta.env.VITE_SERVER_AVATAR + response.data.fileName,
     })

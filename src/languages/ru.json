@@ -208,6 +208,30 @@
       "label": "Загрузить"
     }
   },
+  "viewArticle": {
+    "info": {
+      "title": "Общее",
+      "fields": {
+        "name": "Название",
+        "status": "Статус",
+        "author": "Автор",
+        "comments": "Комментарии",
+        "dateCreated": "Дата создания",
+        "dateUpdated": "Дата последнего обновления",
+        "tags": "Тэги"
+      },
+      "actions": {
+        "update": "Редактировать",
+        "remove": "Удалить"
+      }
+    },
+    "comments": {
+      "title": "Комментарии"
+    },
+    "reactions": {
+      "title": "Реакции"
+    }
+  },
   "notifications": {
     "createUser": {
       "success": "Пользователь успешно создан"
@@ -215,11 +239,17 @@
     "createAdmin": {
       "success": "Администратор успешно создан"
     },
+    "createTag": {
+      "success": "Тэг успешно создан"
+    },
     "updateUser": {
       "success": "Пользователь успешно обновлён"
     },
     "updateAdmin": {
       "success": "Администратор успешно обновлён"
+    },
+    "updateArticle": {
+      "success": "Статья успешно обновлёна"
     },
     "changeAdminPassword": {
       "success": "Пароль пользователя успешно изменён"

@@ -18,8 +18,6 @@ export const DashboardLayout = ({ children }: I_DashboardLayout) => {
   const { isCollapsed } = useStoreSelector((state) => state.sidebar)
   const isMobile = useMediaQuery(E_MediaQuery.md)
 
-  console.log('isCollapsed', isCollapsed)
-
   return (
     <S.Layout>
       <Sidebar items={menuItems} selectedItem={location.pathname.split('/')[1]} />

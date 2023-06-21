@@ -1,9 +1,15 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 
-import { T_GetArticlesDto } from './models/dtos'
-import { T_GetArticlesResponse, T_GetArticleResponse } from './models/responses'
+import { T_GetArticlesDto, T_UpdateArticleDto } from './models/dtos'
+import {
+  T_GetArticlesResponse,
+  T_GetArticleResponse,
+  T_UpdateArticleResponse,
+} from './models/responses'
 
 import { baseQueryWithReAuth } from '../utils'
+
+import { T_ArticleId } from 'models/article'
 
 export const articlesAPI = createApi({
   reducerPath: 'articlesAPI',
@@ -61,11 +67,23 @@ export const articlesAPI = createApi({
       providesTags: ['articles'],
     }),
 
-    getArticle: build.query<T_GetArticleResponse, string>({
+    getArticle: build.query<T_GetArticleResponse, T_ArticleId>({
       query: (payload) => ({
         url: `/articles/${payload}`,
       }),
       providesTags: ['articles', 'article'],
+    }),
+
+    updateArticle: build.mutation<
+      T_UpdateArticleResponse,
+      { body: T_UpdateArticleDto; articleId: T_ArticleId }
+    >({
+      query: (payload) => ({
+        url: `/articles/${payload.articleId}`,
+        method: 'PUT',
+        body: payload.body,
+      }),
+      invalidatesTags: ['articles', 'article'],
     }),
   }),
 })
