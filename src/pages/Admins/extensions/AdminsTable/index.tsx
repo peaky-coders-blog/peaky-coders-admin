@@ -1,5 +1,5 @@
 import { ExclamationCircleOutlined, CheckOutlined } from '@ant-design/icons'
-import { Table, Modal, InputRef, notification } from 'antd'
+import { Table, Modal, InputRef, App } from 'antd'
 import { ColumnsType, FilterConfirmProps } from 'antd/lib/table/interface'
 import { useEffect, useRef, useState } from 'react'
 
@@ -9,14 +9,14 @@ import { ErrorFeedback } from 'components/ErrorFeedback'
 import { Loader } from 'components/Loader'
 import { ViewAdminModal } from 'components/Modals'
 import { t } from 'languages'
-import { T_AdminRecord } from 'models/admin'
-import { T_AdminId } from 'models/shared/admin'
+import { T_AdminId, T_AdminRecord } from 'models/admin'
 import { adminsAPI } from 'services/admins'
 import { formatToDataSource } from 'utils/helpers/table'
 
 export const AdminsTable = () => {
   const [isModalUserOpen, setIsModalUserOpen] = useState(false)
   const [modalAdminId, setModalAdminId] = useState<T_AdminId | null>(null)
+  const { notification } = App.useApp()
 
   const searchInput = useRef<InputRef>(null)
 
@@ -73,7 +73,7 @@ export const AdminsTable = () => {
         icon: <CheckOutlined style={{ color: '#52c41a' }} />,
       })
     }
-  }, [isDeleteAdminSuccess])
+  }, [isDeleteAdminSuccess, notification])
 
   if (isAdminsLoading) {
     return <Loader relative />

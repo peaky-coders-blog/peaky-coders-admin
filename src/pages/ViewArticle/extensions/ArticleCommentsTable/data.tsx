@@ -3,31 +3,35 @@ import { Button, Space, Tooltip } from 'antd'
 import { ColumnsType } from 'antd/es/table/interface'
 
 import { t } from 'languages'
-import { T_ArticleComment } from 'models/article'
+import { I_Comment, T_CommentRecord } from 'models/comment'
 
-export const getColumns = (): ColumnsType<T_ArticleComment> => [
+type T_GetColumnsProps = {
+  onDelete: (commentId: number) => void
+}
+
+export const getColumns = ({ onDelete }: T_GetColumnsProps): ColumnsType<I_Comment> => [
   {
-    title: t('articleReactionsTable.table.id'),
+    title: t('articleCommentsTable.table.id'),
     dataIndex: 'id',
   },
   {
-    title: t('articleReactionsTable.table.username'),
+    title: t('articleCommentsTable.table.username'),
     dataIndex: ['author', 'username'],
   },
   {
-    title: t('articleReactionsTable.table.text'),
+    title: t('articleCommentsTable.table.text'),
     dataIndex: 'text',
   },
   {
-    title: t('articleReactionsTable.table.votes'),
+    title: t('articleCommentsTable.table.votes'),
     dataIndex: 'votes',
   },
   {
     key: 'action',
-    render: () => (
+    render: (record: T_CommentRecord) => (
       <Space size='middle'>
-        <Tooltip title={t('usersTable.tooltip.delete')} placement='topLeft'>
-          <Button icon={<DeleteOutlined />} onClick={() => null} />
+        <Tooltip title={t('tooltip.delete')} placement='topLeft'>
+          <Button icon={<DeleteOutlined />} onClick={() => onDelete(record.id)} />
         </Tooltip>
       </Space>
     ),

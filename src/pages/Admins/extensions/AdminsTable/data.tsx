@@ -6,8 +6,7 @@ import { RefObject } from 'react'
 import { Link } from 'react-router-dom'
 
 import { t } from 'languages'
-import { T_AdminRecord } from 'models/admin'
-import { T_AdminId } from 'models/shared/admin'
+import { T_AdminId, T_AdminRecord } from 'models/admin'
 import { E_FormatDate } from 'utils/helpers/date'
 
 interface I_GetColumnsProps {

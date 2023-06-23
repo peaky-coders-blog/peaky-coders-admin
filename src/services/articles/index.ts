@@ -93,5 +93,13 @@ export const articlesAPI = createApi({
       }),
       invalidatesTags: ['articles'],
     }),
+
+    deleteArticleComment: build.mutation<void, T_ArticleId>({
+      query: (payload) => ({
+        url: `/comments/${payload}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['articles', 'article'],
+    }),
   }),
 })

@@ -68,6 +68,12 @@
         "content": "Вы действительно хотите удалить статью?",
         "ok": "Подтверждаю",
         "cancel": "Отмена"
+      },
+      "removeArticleComment": {
+        "title": "Удаление статьи",
+        "content": "Вы действительно хотите удалить комментарий и его связанные?",
+        "ok": "Подтверждаю",
+        "cancel": "Отмена"
       }
     },
     "viewUser": {
@@ -202,6 +208,14 @@
       "votes": "Голоса"
     }
   },
+  "articleCommentsTable": {
+    "table": {
+      "id": "ID",
+      "username": "Пользователь",
+      "text": "Текст",
+      "votes": "Голоса"
+    }
+  },
   "components": {
     "uploadImageButton": {
       "label": "Загрузить"
@@ -261,6 +275,9 @@
     },
     "deleteAdmin": {
       "success": "Администратор успешно удалён"
+    },
+    "deleteArticleComment": {
+      "success": "Комментарий к статье успешно удалён"
     }
   },
   "tooltip": {
