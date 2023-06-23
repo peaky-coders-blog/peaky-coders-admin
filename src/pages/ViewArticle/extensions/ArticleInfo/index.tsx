@@ -1,8 +1,15 @@
-import { UserOutlined, CommentOutlined, CalendarOutlined, CheckOutlined } from '@ant-design/icons'
+import {
+  UserOutlined,
+  CommentOutlined,
+  CalendarOutlined,
+  CheckOutlined,
+  ExclamationCircleOutlined,
+} from '@ant-design/icons'
 import MDEditor from '@uiw/react-md-editor'
-import { Button, Col, Row, Space, Statistic, Tag, Typography } from 'antd'
+import { App, Button, Col, Modal, Row, Space, Statistic, Tag, Typography } from 'antd'
 import dayjs from 'dayjs'
-import { Link, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { ErrorFeedback } from 'components/ErrorFeedback'
 import { Loader } from 'components/Loader'
@@ -15,11 +22,41 @@ import { E_FormatDate } from 'utils/helpers/date'
 
 export const ArticleInfo = () => {
   const params = useParams<T_Params>()
+  const { notification } = App.useApp()
+  const navigate = useNavigate()
 
   // Получение статьи
   const { data: articleData, isLoading: isArticleLoading } = articlesAPI.useGetArticleQuery(
     Number(params.articleId),
   )
+
+  // Удаление статьи
+  const [fetchDeleteArticle, { isSuccess: isDeleteArticleSuccess }] =
+    articlesAPI.useDeleteArticleMutation()
+
+  const handleRemove = () => {
+    Modal.confirm({
+      title: t('modal.confirm.removeArticle.title'),
+      icon: <ExclamationCircleOutlined />,
+      content: t('modal.confirm.removeArticle.content'),
+      okText: t('modal.confirm.removeArticle.ok'),
+      cancelText: t('modal.confirm.removeArticle.cancel'),
+      maskClosable: true,
+      onOk: () => {
+        fetchDeleteArticle(Number(params.articleId))
+      },
+    })
+  }
+
+  useEffect(() => {
+    if (isDeleteArticleSuccess) {
+      notification.open({
+        message: t('notifications.deleteArticle.success'),
+        icon: <CheckOutlined style={{ color: '#52c41a' }} />,
+      })
+      navigate(`/articles`)
+    }
+  }, [isDeleteArticleSuccess, navigate, notification])
 
   if (isArticleLoading) return <Loader relative />
 
@@ -98,7 +135,7 @@ export const ArticleInfo = () => {
               {t('viewArticle.info.actions.update')}
             </Button>
           </Link>
-          <Button type='primary' size='large'>
+          <Button onClick={handleRemove} type='primary' size='large'>
             {t('viewArticle.info.actions.remove')}
           </Button>
         </Space>

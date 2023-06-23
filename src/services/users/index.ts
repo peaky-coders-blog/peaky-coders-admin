@@ -10,7 +10,7 @@ import {
 
 import { baseQueryWithReAuth } from '../utils'
 
-import { T_UserId } from 'models/shared/user'
+import { T_UserId } from 'models/user'
 
 export const usersAPI = createApi({
   reducerPath: 'usersAPI',

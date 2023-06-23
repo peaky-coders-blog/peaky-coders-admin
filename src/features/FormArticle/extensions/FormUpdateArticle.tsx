@@ -1,8 +1,8 @@
 import { CheckOutlined } from '@ant-design/icons'
 import MDEditor from '@uiw/react-md-editor'
-import { Button, Col, Divider, Form, Input, Row, Select, Space, notification } from 'antd'
+import { App, Button, Col, Divider, Form, Input, Row, Select, Space } from 'antd'
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { ErrorFeedback } from 'components/ErrorFeedback'
 import { Loader } from 'components/Loader'
@@ -19,28 +19,29 @@ import { articleToFormUpdate } from 'utils/forms/articles'
 export const FormUpdateArticle = () => {
   const navigate = useNavigate()
   const params = useParams<T_Params>()
+  const { notification } = App.useApp()
 
   const [articleForm] = Form.useForm<T_UpdateArticleForm>()
   const [tagForm] = Form.useForm<T_CreateTagArticleForm>()
   const [editorValue, setEditorValue] = useState('')
 
   // Обновление статьи
-  const [fetchUpdateArticle, { data, isSuccess: isArticleUpdatedSuccess }] =
+  const [fetchUpdateArticle, { isSuccess: isArticleUpdatedSuccess }] =
     articlesAPI.useUpdateArticleMutation()
 
   // Создание тэга
   const [fetchCreateTag, { isSuccess: isTagCreatedSuccess }] = tagsAPI.useCreateTagMutation()
 
-  // Успешное обновление админа
+  // Успешное обновление статьи
   useEffect(() => {
-    if (data && isArticleUpdatedSuccess) {
+    if (isArticleUpdatedSuccess) {
       notification.open({
         message: t('notifications.updateArticle.success'),
         icon: <CheckOutlined style={{ color: '#52c41a' }} />,
       })
-      navigate(`/articles${params.articleId}`)
+      navigate(`/articles/${params.articleId}`)
     }
-  }, [isArticleUpdatedSuccess, data, navigate, params.articleId])
+  }, [isArticleUpdatedSuccess, navigate, params.articleId, notification])
 
   // Успешное добавление тэга
   useEffect(() => {
@@ -62,6 +63,7 @@ export const FormUpdateArticle = () => {
   // Получение тэгов
   const { data: tagsData, isLoading: isTagsLoading } = tagsAPI.useGetTagsQuery(null)
 
+  // Присвоение контента md редактору
   useEffect(() => {
     if (isArticleSuccess && articleData.data) {
       setEditorValue(articleData.data.content)
@@ -73,17 +75,18 @@ export const FormUpdateArticle = () => {
   }
 
   const handleFinishArticle = (values: T_UpdateArticleForm) => {
-    console.log('values', values)
-    // fetchUpdateAdmin({ body: values, adminId: params.adminId! })
+    fetchUpdateArticle({
+      articleId: Number(params.articleId),
+      body: {
+        ...values,
+        content: editorValue,
+      },
+    })
   }
 
   const handleFinishTag = (values: T_CreateTagArticleForm) => {
     fetchCreateTag(values)
     tagForm.resetFields()
-  }
-
-  const handleCancel = () => {
-    navigate(`/articles`)
   }
 
   if (isArticleLoading || isTagsLoading) return <Loader relative />
@@ -161,9 +164,11 @@ export const FormUpdateArticle = () => {
         <C.Brick />
         <Form.Item>
           <Space>
-            <Button onClick={handleCancel} size='large' type='default' htmlType='button'>
-              {t('adminForm.actions.cancel')}
-            </Button>
+            <Link to={`/articles/${params.articleId}`}>
+              <Button size='large' type='default' htmlType='button'>
+                {t('adminForm.actions.cancel')}
+              </Button>
+            </Link>
             <Button size='large' type='primary' htmlType='submit'>
               {t('adminForm.actions.save')}
             </Button>

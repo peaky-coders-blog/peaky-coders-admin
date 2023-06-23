@@ -46,17 +46,6 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ),
   },
   {
-    title: t('articlesTable.table.author'),
-    dataIndex: ['author', 'username'],
-    filterIcon: (filtered: boolean) => (
-      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
-    sorter: {
-      multiple: 1,
-    },
-    ...getColumnSearch({ ...searchOptions, dataIndex: ['author', 'username'] }),
-  },
-  {
     title: t('articlesTable.table.tags'),
     dataIndex: ['tags'],
     render: (value: I_Tag[]) => (

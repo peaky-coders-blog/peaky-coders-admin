@@ -1,4 +1,4 @@
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, App as AntdApp } from 'antd'
 import ruRU from 'antd/es/locale/ru_RU'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -19,8 +19,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <ConfigProvider locale={ruRU} theme={{ token: { colorPrimary: '#AB274F' } }}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <App />
-            <GlobalStyles />
+            <AntdApp>
+              <App />
+              <GlobalStyles />
+            </AntdApp>
           </BrowserRouter>
         </ThemeProvider>
       </ConfigProvider>
