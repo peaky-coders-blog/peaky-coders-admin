@@ -17,6 +17,11 @@ export const getColumns = ({ onDelete }: T_GetColumnsProps): ColumnsType<I_Comme
   {
     title: t('articleCommentsTable.table.username'),
     dataIndex: ['author', 'username'],
+    render: (value: string, record) => (
+      <a href={`https://${record.author?.from}.com/${value}`} target='_blank' rel='noreferrer'>
+        {value}
+      </a>
+    ),
   },
   {
     title: t('articleCommentsTable.table.text'),

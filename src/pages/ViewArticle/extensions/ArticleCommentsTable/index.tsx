@@ -22,17 +22,17 @@ export const ArticleCommentsTable = () => {
     Number(params.articleId!),
   )
 
-  // Удаление админа
+  // Удаление комментария
   const [fetchDeleteArticleComment, { isSuccess: isDeleteArticleComment }] =
     articlesAPI.useDeleteArticleCommentMutation()
 
   const handleDelete = (commentId: T_CommentId) => {
     Modal.confirm({
-      title: t('modal.confirm.removeArticleComment.title') + ` ID:${commentId}`,
+      title: t('modal.confirm.deleteArticleComment.title') + ` ID:${commentId}`,
       icon: <ExclamationCircleOutlined />,
-      content: t('modal.confirm.removeArticleComment.content'),
-      okText: t('modal.confirm.removeArticleComment.ok'),
-      cancelText: t('modal.confirm.removeArticleComment.cancel'),
+      content: t('modal.confirm.deleteArticleComment.content'),
+      okText: t('modal.confirm.deleteArticleComment.ok'),
+      cancelText: t('modal.confirm.deleteArticleComment.cancel'),
       maskClosable: true,
       onOk: () => {
         fetchDeleteArticleComment(commentId)

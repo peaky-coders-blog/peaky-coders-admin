@@ -69,9 +69,15 @@
         "ok": "Подтверждаю",
         "cancel": "Отмена"
       },
-      "removeArticleComment": {
-        "title": "Удаление статьи",
+      "deleteArticleComment": {
+        "title": "Удаление комментария",
         "content": "Вы действительно хотите удалить комментарий и его связанные?",
+        "ok": "Подтверждаю",
+        "cancel": "Отмена"
+      },
+      "deleteArticleAuthorReaction": {
+        "title": "Удаление реакции пользователя",
+        "content": "Вы действительно хотите удалить реакцию пользователя?",
         "ok": "Подтверждаю",
         "cancel": "Отмена"
       }
@@ -278,6 +284,9 @@
     },
     "deleteArticleComment": {
       "success": "Комментарий к статье успешно удалён"
+    },
+    "deleteArticleAuthorReaction": {
+      "success": "Реакция к статье успешно удалена"
     }
   },
   "tooltip": {

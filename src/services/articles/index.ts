@@ -101,5 +101,12 @@ export const articlesAPI = createApi({
       }),
       invalidatesTags: ['articles', 'article'],
     }),
+    deleteArticleAuthorReaction: build.mutation<void, { authorId: number; reactionId: number }>({
+      query: ({ authorId, reactionId }) => ({
+        url: `/reactions/${reactionId}/${authorId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['articles', 'article'],
+    }),
   }),
 })

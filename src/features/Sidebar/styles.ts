@@ -120,7 +120,7 @@ export const SidebarListItem = styled.li<{ isActive: boolean }>`
 
   width: 100%;
   min-width: 56px;
-  height: 49px;
+  height: 54px;
   padding: 16px;
 
   border-radius: 8px;
