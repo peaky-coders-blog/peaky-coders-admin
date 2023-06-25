@@ -1,11 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 
-import { T_GetArticlesDto, T_UpdateArticleDto } from './models/dtos'
-import {
-  T_GetArticlesResponse,
-  T_GetArticleResponse,
-  T_UpdateArticleResponse,
-} from './models/responses'
+import { T_CreateArticleDto, T_GetArticlesDto, T_UpdateArticleDto } from './models/dtos'
+import { T_GetArticlesResponse, T_GetArticleResponse } from './models/responses'
 
 import { baseQueryWithReAuth } from '../utils'
 
@@ -74,10 +70,16 @@ export const articlesAPI = createApi({
       providesTags: ['articles', 'article'],
     }),
 
-    updateArticle: build.mutation<
-      T_UpdateArticleResponse,
-      { body: T_UpdateArticleDto; articleId: T_ArticleId }
-    >({
+    createArticle: build.mutation<void, T_CreateArticleDto>({
+      query: (payload) => ({
+        url: `/articles`,
+        method: 'POST',
+        body: payload,
+      }),
+      invalidatesTags: ['articles'],
+    }),
+
+    updateArticle: build.mutation<void, { body: T_UpdateArticleDto; articleId: T_ArticleId }>({
       query: (payload) => ({
         url: `/articles/${payload.articleId}`,
         method: 'PUT',
@@ -101,6 +103,7 @@ export const articlesAPI = createApi({
       }),
       invalidatesTags: ['articles', 'article'],
     }),
+
     deleteArticleAuthorReaction: build.mutation<void, { authorId: number; reactionId: number }>({
       query: ({ authorId, reactionId }) => ({
         url: `/reactions/${reactionId}/${authorId}`,
