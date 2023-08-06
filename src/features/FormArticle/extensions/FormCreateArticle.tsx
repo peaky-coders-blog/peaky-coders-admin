@@ -24,7 +24,7 @@ export const FormCreateArticle = () => {
   const [tagForm] = Form.useForm<T_CreateTagArticleForm>()
   const [editorValue, setEditorValue] = useState('')
 
-  // Обновление статьи
+  // Создание статьи
   const [fetchCreateArticle, { isSuccess: isArticleCreatedSuccess }] =
     articlesAPI.useCreateArticleMutation()
 
@@ -35,10 +35,10 @@ export const FormCreateArticle = () => {
   useEffect(() => {
     if (isArticleCreatedSuccess) {
       notification.open({
-        message: t('notifications.updateArticle.success'),
+        message: 'Статья успешно создана!',
         icon: <CheckOutlined style={{ color: '#52c41a' }} />,
       })
-      navigate(`/articles/${params.articleId}`)
+      navigate(`/articles`)
     }
   }, [isArticleCreatedSuccess, navigate, params.articleId, notification])
 
@@ -46,7 +46,7 @@ export const FormCreateArticle = () => {
   useEffect(() => {
     if (isTagCreatedSuccess) {
       notification.open({
-        message: t('notifications.createTag.success'),
+        message: 'Тэг успешно создан',
         icon: <CheckOutlined style={{ color: '#52c41a' }} />,
       })
     }
@@ -79,20 +79,12 @@ export const FormCreateArticle = () => {
       <Form form={articleForm} layout='vertical' onFinish={handleFinishArticle}>
         <Row gutter={[16, 4]}>
           <Col xs={24} lg={14} xl={6}>
-            <Form.Item
-              name='title'
-              label={t('articleForm.fields.title')}
-              rules={[{ required: true }]}
-            >
+            <Form.Item name='title' label='Название' rules={[{ required: true }]}>
               <Input />
             </Form.Item>
           </Col>
           <Col xs={24} lg={10} xl={4}>
-            <Form.Item
-              name='status'
-              label={t('articleForm.fields.status')}
-              rules={[{ required: true }]}
-            >
+            <Form.Item name='status' label='Статус' rules={[{ required: true }]}>
               <Select
                 options={Object.entries(tagStatusText).map((status) => ({
                   value: status[0],
@@ -102,11 +94,7 @@ export const FormCreateArticle = () => {
             </Form.Item>
           </Col>
           <Col xs={24} lg={24} xl={14}>
-            <Form.Item
-              name='tags'
-              label={t('articleForm.fields.tags')}
-              rules={[{ required: true }]}
-            >
+            <Form.Item name='tags' label='Тэги' rules={[{ required: true }]}>
               <Select
                 mode='multiple'
                 dropdownRender={(menu) => (
@@ -144,11 +132,11 @@ export const FormCreateArticle = () => {
           <Space>
             <Link to={`/articles/${params.articleId}`}>
               <Button size='large' type='default' htmlType='button'>
-                {t('adminForm.actions.cancel')}
+                Отмена
               </Button>
             </Link>
             <Button size='large' type='primary' htmlType='submit'>
-              {t('adminForm.actions.save')}
+              Создать
             </Button>
           </Space>
         </Form.Item>

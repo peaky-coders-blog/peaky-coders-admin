@@ -16,7 +16,7 @@ export const UpdateArticle = () => {
       <Breadcrumbs
         items={[
           { title: t('dashboard.header.articles'), to: '/articles' },
-          { title: t('dashboard.header.viewArticle'), to: `/articles/${params.articleId!}` },
+          { title: t('dashboard.header.viewArticle'), to: `/articles/${params.articleId}` },
           { title: t('dashboard.header.updateArticle') },
         ]}
       />
