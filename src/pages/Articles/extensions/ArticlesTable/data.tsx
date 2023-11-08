@@ -17,14 +17,14 @@ interface I_GetColumns {
 
 export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_ArticleRecord> => [
   {
-    title: t('articlesTable.table.id'),
+    title: 'ID',
     dataIndex: 'id',
     sorter: {
       multiple: 1,
     },
   },
   {
-    title: t('articlesTable.table.title'),
+    title: 'Название',
     dataIndex: 'title',
     filterIcon: (filtered: boolean) => (
       <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
@@ -32,7 +32,7 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ...getColumnSearch({ ...searchOptions, dataIndex: ['title'] }),
   },
   {
-    title: t('articlesTable.table.status'),
+    title: 'Статус',
     dataIndex: 'status',
     filters: [
       { text: 'Опубликован', value: E_ArticleStatus.PUBLISHED },
@@ -46,7 +46,7 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ),
   },
   {
-    title: t('articlesTable.table.tags'),
+    title: 'Тэги',
     dataIndex: ['tags'],
     render: (value: I_Tag[]) => (
       <Space size='small'>
@@ -58,7 +58,11 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ),
   },
   {
-    title: t('articlesTable.table.activity'),
+    title: 'Просмотры',
+    dataIndex: ['views'],
+  },
+  {
+    title: 'Активность',
     dataIndex: ['_count', 'ArticleComment'],
     render: (commentsCount: number, record) => {
       const reactions = [...(record.ArticleReaction || [])].sort((a, b) =>
@@ -83,14 +87,14 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     },
   },
   {
-    title: t('articlesTable.table.createdAt'),
+    title: 'Дата создания',
     dataIndex: 'createdAt',
     render: (value: string) => (
       <Space size='middle'>{dayjs(value).format(E_FormatDate.extend)}</Space>
     ),
   },
   {
-    title: t('articlesTable.table.updatedAt'),
+    title: 'Дана обновления',
     dataIndex: 'updatedAt',
     render: (value: string) => (
       <Space size='middle'>{dayjs(value).format(E_FormatDate.extend)}</Space>

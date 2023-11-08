@@ -23,6 +23,7 @@ export interface I_Article {
   authorId: T_UserId
   createdAt: Date
   updatedAt: Date
+  views: number
   _count?: {
     ArticleComment: number
   }

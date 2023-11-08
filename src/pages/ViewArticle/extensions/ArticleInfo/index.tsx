@@ -4,6 +4,7 @@ import {
   CalendarOutlined,
   CheckOutlined,
   ExclamationCircleOutlined,
+  EyeOutlined,
 } from '@ant-design/icons'
 import MDEditor from '@uiw/react-md-editor'
 import { App, Button, Col, Modal, Row, Space, Statistic, Tag, Typography } from 'antd'
@@ -67,6 +68,9 @@ export const ArticleInfo = () => {
           <Col xs={24} lg={12} xl={12}>
             <Statistic title={t('viewArticle.info.fields.name')} value={articleData.data.title} />
           </Col>
+        </Row>
+        <C.Brick />
+        <Row gutter={[16, 16]}>
           <Col xs={24} lg={12} xl={6}>
             <Statistic
               title={t('viewArticle.info.fields.status')}
@@ -74,9 +78,6 @@ export const ArticleInfo = () => {
               prefix={<CheckOutlined />}
             />
           </Col>
-        </Row>
-        <C.Brick />
-        <Row gutter={[16, 4]}>
           <Col xs={24} lg={12} xl={6}>
             <Statistic
               title={t('viewArticle.info.fields.author')}
@@ -93,6 +94,9 @@ export const ArticleInfo = () => {
             />
           </Col>
           <Col xs={24} lg={12} xl={6}>
+            <Statistic title='Просмотры' value={articleData.data.views} prefix={<EyeOutlined />} />
+          </Col>
+          <Col xs={24} lg={12} xl={6}>
             <Statistic
               title={t('viewArticle.info.fields.dateCreated')}
               value={dayjs(articleData.data.createdAt).format(E_FormatDate.extend)}
@@ -102,7 +106,7 @@ export const ArticleInfo = () => {
 
           <Col xs={24} lg={12} xl={6}>
             <Statistic
-              title={t('viewArticle.info.fields.dateUpdated')}
+              title='Дана обновления'
               value={dayjs(articleData.data.updatedAt).format(E_FormatDate.extend)}
               prefix={<CalendarOutlined />}
             />
