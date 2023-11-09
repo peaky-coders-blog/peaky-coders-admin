@@ -12,6 +12,7 @@ import { GlobalStyles } from 'styles/global'
 import { theme } from 'styles/theme'
 
 import 'antd/dist/reset.css'
+import 'devicon/devicon.min.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>

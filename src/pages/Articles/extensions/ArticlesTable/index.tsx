@@ -12,7 +12,7 @@ import { E_SortBy } from 'models/shared/app'
 import { articlesAPI } from 'services/articles'
 import { formatToDataSource } from 'utils/helpers/table'
 
-export const ArticleTable = () => {
+export const ArticlesTable = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const [searchText, setSearchText] = useState('')
   const searchInput = useRef<InputRef>(null)

@@ -10,7 +10,7 @@ export const tagsAPI = createApi({
   baseQuery: baseQueryWithReAuth,
   tagTypes: ['tags', 'tag'],
   endpoints: (build) => ({
-    getTags: build.query<T_GetTagsResponse, null>({
+    getTags: build.query<T_GetTagsResponse, null | void>({
       query: () => ({
         url: '/tags',
       }),

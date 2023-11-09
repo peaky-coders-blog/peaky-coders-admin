@@ -22,6 +22,7 @@ export const AppRoutes = () => {
         <Route path={E_Routes.updateArticle} element={<Pages.UpdateArticle />} />
         <Route path={E_Routes.viewArticle} element={<Pages.ViewArticle />} />
         <Route path={E_Routes.tags} element={<Pages.Tags />} />
+        <Route path={E_Routes.createTags} element={<Pages.CreateTag />} />
         <Route path={E_Routes.reactions} element={<Pages.Reactions />} />
       </Route>
       <Route path='*' element={<Navigate to={E_Routes.articles} />} />

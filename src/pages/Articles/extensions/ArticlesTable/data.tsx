@@ -58,19 +58,19 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ),
   },
   {
-    title: 'Просмотры',
-    dataIndex: ['views'],
-  },
-  {
     title: 'Активность',
-    dataIndex: ['_count', 'ArticleComment'],
-    render: (commentsCount: number, record) => {
+    dataIndex: ['views'],
+    sorter: {
+      multiple: 1,
+    },
+    render: (views: number, record) => {
       const reactions = [...(record.ArticleReaction || [])].sort((a, b) =>
         a.reaction!.name.localeCompare(b.reaction!.name),
       )
       return (
         <Space size='small'>
-          <Tag>{commentsCount}💬</Tag>
+          <Tag>{record._count?.ArticleComment || 0}💬</Tag>
+          <Tag>{views}👁️</Tag>
           {record.ArticleReaction &&
             reactions.map((item) => {
               if (item.reaction) {
@@ -94,7 +94,7 @@ export const getColumns = ({ searchOptions }: I_GetColumns): ColumnsType<T_Artic
     ),
   },
   {
-    title: 'Дана обновления',
+    title: 'Дата обновления',
     dataIndex: 'updatedAt',
     render: (value: string) => (
       <Space size='middle'>{dayjs(value).format(E_FormatDate.extend)}</Space>

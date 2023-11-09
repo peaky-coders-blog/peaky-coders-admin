@@ -1,13 +1,13 @@
 import { Divider } from 'antd'
 
 import { Breadcrumbs } from 'components/Breadcrumbs'
-import { FormCreateArticle } from 'features/FormArticle'
+import { FormCreateArticle } from 'features/FormArticle/extensions/FormCreateArticle'
 import * as C from 'styles/components'
 
-export const CreateArticle = () => {
+export const CreateTag = () => {
   return (
     <div>
-      <Breadcrumbs items={[{ title: 'Статьи', to: '/articles' }, { title: 'Создание статьи' }]} />
+      <Breadcrumbs items={[{ title: 'Тэги', to: '/articles' }, { title: 'Создание тэга' }]} />
       <Divider />
 
       <C.WrapperPage>

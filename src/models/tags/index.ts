@@ -8,3 +8,7 @@ export interface I_Tag {
   createdAt: Date
   updatedAt: Date
 }
+
+export type T_TagRecord = I_Tag & {
+  key: React.Key
+}

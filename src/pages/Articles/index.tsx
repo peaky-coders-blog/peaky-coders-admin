@@ -1,8 +1,7 @@
 import { Button, Divider } from 'antd'
-
 import { Link } from 'react-router-dom'
 
-import { ArticleTable } from './extensions/ArticlesTable'
+import { ArticlesTable } from './extensions/ArticlesTable'
 
 import { Breadcrumbs } from 'components/Breadcrumbs'
 import { t } from 'languages'
@@ -18,8 +17,9 @@ export const Articles = () => {
         <Link to='/articles/create'>
           <Button type='primary'>Создать статью</Button>
         </Link>
+
         <C.Brick />
-        <ArticleTable />
+        <ArticlesTable />
       </C.WrapperPage>
     </div>
   )

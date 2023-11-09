@@ -41,9 +41,9 @@ export interface T_ArticleReaction {
 }
 
 export type T_ArticleReactionRecord = T_ArticleReaction & {
-  key: string
+  key: React.Key
 }
 
 export type T_ArticleRecord = I_Article & {
-  key: string
+  key: React.Key
 }

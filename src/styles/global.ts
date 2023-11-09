@@ -3,12 +3,11 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
   html,
   body {
-    font-family: 'Rubik', sans-serif;
-
     min-height:  100vh;
     margin: 0;
     padding: 0;
-    
+
+    font-family: Rubik, sans-serif;
     font-size: 16px;
     font-weight: 400;
     
@@ -37,18 +36,27 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  [class^="devicon-"] {
+    font-size: 32px;
+  }
+
+
   .wmde-markdown{
     background-color: #2D2D2D;
   }
+
   .w-md-editor {
     background-color: #2D2D2D;
   }
+
   .code-highlight {
     background-color: #222121 !important;
   }
+
   .code-highlight .code-line {
     background-color: #222121;
   }
+
   .language-markdown .code-line {
     background-color: #2D2D2D !important;
   }

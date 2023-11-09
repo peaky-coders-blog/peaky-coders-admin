@@ -10,6 +10,7 @@ export enum E_Routes {
   viewArticle = '/articles/:articleId',
   updateArticle = '/articles/:articleId/update',
   tags = '/tags',
+  createTags = '/tags/create',
   reactions = '/reactions',
 }
 
