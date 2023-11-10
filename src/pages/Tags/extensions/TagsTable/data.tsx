@@ -20,7 +20,7 @@ export const getColumns = (): ColumnsType<T_TagRecord> => [
   {
     title: 'Иконка',
     dataIndex: 'icon',
-    render: (value: string) => (value ? <i className='devicon-react-original colored'></i> : '-'),
+    render: (value: string) => (value ? <i className={value}></i> : '-'),
   },
   {
     title: 'Кол-во',

@@ -1,7 +1,7 @@
 import { Divider } from 'antd'
 
 import { Breadcrumbs } from 'components/Breadcrumbs'
-import { FormCreateArticle } from 'features/FormArticle/extensions/FormCreateArticle'
+import { FormCreateTag } from 'features/FormTag'
 import * as C from 'styles/components'
 
 export const CreateTag = () => {
@@ -11,7 +11,7 @@ export const CreateTag = () => {
       <Divider />
 
       <C.WrapperPage>
-        <FormCreateArticle />
+        <FormCreateTag />
       </C.WrapperPage>
     </div>
   )

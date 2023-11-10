@@ -40,7 +40,7 @@ export const UpdatePasswordModal = ({
       <Form form={form} layout='vertical' onFinish={handleFinish}>
         <Form.Item
           name='password'
-          label={t('userForm.fields.password')}
+          label='Новый пароль'
           hasFeedback
           rules={[{ required: true, min: 6 }]}
         >
@@ -48,7 +48,7 @@ export const UpdatePasswordModal = ({
         </Form.Item>
         <Form.Item
           name='confirm'
-          label={t('userForm.fields.rePassword')}
+          label='Повторить новый пароль'
           dependencies={['password']}
           hasFeedback
           rules={[
