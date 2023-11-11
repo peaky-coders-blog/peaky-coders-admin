@@ -3,26 +3,26 @@ import { Divider } from 'antd'
 import { useParams } from 'react-router-dom'
 
 import { Breadcrumbs } from 'components/Breadcrumbs'
-import { FormUpdateArticle } from 'features/FormArticle'
+import { FormUpdateTag } from 'features/FormTag'
 import { T_Params } from 'models/routes'
 import * as C from 'styles/components'
 
-export const UpdateArticle = () => {
+export const UpdateTag = () => {
   const params = useParams<T_Params>()
 
   return (
     <div>
       <Breadcrumbs
         items={[
-          { title: 'Статьи', to: '/articles' },
-          { title: 'Просмотр статьи', to: `/articles/${params.articleId}` },
-          { title: 'Редактирование статьи' },
+          { title: 'Тэги', to: '/tags' },
+          { title: 'Просмотр тэга', to: `/tags/${params.tagId}` },
+          { title: 'Редактирование тэга' },
         ]}
       />
       <Divider />
 
       <C.WrapperPage>
-        <FormUpdateArticle />
+        <FormUpdateTag />
       </C.WrapperPage>
     </div>
   )

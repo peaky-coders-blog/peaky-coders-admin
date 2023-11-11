@@ -1,3 +1,5 @@
+import { I_Article } from 'models/article'
+
 export type T_TagId = number
 
 export interface I_Tag {
@@ -7,6 +9,7 @@ export interface I_Tag {
   icon: string
   createdAt: Date
   updatedAt: Date
+  articles?: Pick<I_Article, 'id' | 'title'>[]
 }
 
 export type T_TagRecord = I_Tag & {

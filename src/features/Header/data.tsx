@@ -18,6 +18,8 @@ export const headerTitles: Record<E_Routes, string> = {
   [E_Routes.createTags]: 'Создание тэга',
   [E_Routes.reactions]: 'Реакции',
   [E_Routes.viewArticle]: 'Просмотр статьи',
+  [E_Routes.viewTag]: 'Просмотр тэга',
+  [E_Routes.updateTag]: 'Редактирование тэга',
 }
 
 interface I_ProfileMenu {

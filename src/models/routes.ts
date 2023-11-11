@@ -12,10 +12,13 @@ export enum E_Routes {
   tags = '/tags',
   createTags = '/tags/create',
   reactions = '/reactions',
+  viewTag = '/tags/:tagId',
+  updateTag = '/tags/:tagId/update',
 }
 
 export type T_Params = {
   userId: string
   adminId: string
   articleId: string
+  tagId: string
 }

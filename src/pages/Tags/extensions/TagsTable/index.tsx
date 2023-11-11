@@ -5,7 +5,9 @@ import { getColumns } from './data'
 import { tagsAPI } from 'services/tags'
 
 export const TagsTable = () => {
-  const { data: tagsData, isLoading: isTagsLoading } = tagsAPI.useGetTagsQuery()
+  const { data: tagsData, isLoading: isTagsLoading } = tagsAPI.useGetTagsQuery(null, {
+    refetchOnMountOrArgChange: true,
+  })
 
   return (
     <Table

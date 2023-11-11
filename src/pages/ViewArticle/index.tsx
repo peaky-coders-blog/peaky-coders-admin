@@ -5,31 +5,25 @@ import { ArticleInfo } from './extensions/ArticleInfo'
 import { ArticleReactionsTable } from './extensions/ArticleReactionsTable'
 
 import { Breadcrumbs } from 'components/Breadcrumbs'
-import { t } from 'languages'
 import * as C from 'styles/components'
 
 export const ViewArticle = () => {
   return (
     <div>
-      <Breadcrumbs
-        items={[
-          { title: t('dashboard.header.articles'), to: '/articles' },
-          { title: t('dashboard.header.viewArticle') },
-        ]}
-      />
+      <Breadcrumbs items={[{ title: 'Статьи', to: '/articles' }, { title: 'Просмотр статьи' }]} />
       <Divider />
       <C.WrapperPage>
         <Divider orientation='left' orientationMargin='0'>
-          {t('viewArticle.info.title')}
+          Общее
         </Divider>
         <ArticleInfo />
         <C.Brick />
         <Divider orientation='left' orientationMargin='0'>
-          {t('viewArticle.comments.title')}
+          Комментарии
         </Divider>
         <ArticleCommentsTable />
         <Divider orientation='left' orientationMargin='0'>
-          {t('viewArticle.reactions.title')}
+          Реакции
         </Divider>
         <Row gutter={[16, 4]}>
           <ArticleReactionsTable />

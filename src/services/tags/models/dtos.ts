@@ -3,3 +3,9 @@ export type T_CreateTagDto = {
   icon?: string
   description?: string
 }
+
+export type T_UpdateTagDto = {
+  name: string
+  icon?: string
+  description?: string
+}

@@ -4,7 +4,6 @@ import { ColumnsType } from 'antd/es/table/interface'
 import dayjs from 'dayjs'
 import { Link } from 'react-router-dom'
 
-import { t } from 'languages'
 import { T_TagRecord } from 'models/tags'
 import { E_FormatDate } from 'utils/helpers/date'
 
@@ -20,10 +19,11 @@ export const getColumns = (): ColumnsType<T_TagRecord> => [
   {
     title: 'Иконка',
     dataIndex: 'icon',
+    width: 32,
     render: (value: string) => (value ? <i className={value}></i> : '-'),
   },
   {
-    title: 'Кол-во',
+    title: 'Кол-во связей',
     dataIndex: ['_count', 'articles'],
   },
   {
@@ -45,8 +45,8 @@ export const getColumns = (): ColumnsType<T_TagRecord> => [
     fixed: 'right',
     render: (record: T_TagRecord) => (
       <Space size='middle'>
-        <Tooltip title={t('tooltip.view')} placement='topLeft'>
-          <Link to={`/articles/${record.id}`}>
+        <Tooltip title='Просмотреть' placement='topLeft'>
+          <Link to={`/tags/${record.id}`}>
             <Button icon={<EyeOutlined />} />
           </Link>
         </Tooltip>
